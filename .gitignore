@@ -1,5 +1,5 @@
 # Configuration
-.env
+assets/.env
 
 # Miscellaneous
 *.class

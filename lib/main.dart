@@ -45,7 +45,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await DotEnv().load('assets/.env');
-  print(DotEnv().env['ALGO_NODE']);
+  print(DotEnv().env['ALGO_NODE_NETWORK']);
+  print(DotEnv().env['APP_NAME']);
 
   Logger.root.level = Level.ALL;
   Logger.root.onRecord.listen((LogRecord rec) {
@@ -63,9 +64,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Algorand Wallet',
+      title: DotEnv().env['APP_NAME'],
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
       home: BlocProvider(
           create: (_) => AppBloc(configuration: configuration),

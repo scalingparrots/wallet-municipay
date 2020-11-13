@@ -6,6 +6,7 @@ import 'package:algorand_flutter/ui/send_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:manta_dart/messages.dart';
 import 'package:algo_explorer_api/algo_explorer_api.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -69,7 +70,7 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Algorand'),
+          title: Text(DotEnv().env['APP_NAME']),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.settings),

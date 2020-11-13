@@ -26,9 +26,9 @@ class Settings extends StatelessWidget {
               child: ListView(
                 children: <Widget>[
                   ListTile(
-                    title: Text(s.base.account.address),
-                    subtitle: Text('Address'),
-                    onTap: () => appBloc.add(AppSeedShow()),
+                    title: Text('Backup seed'),
+                    onTap: () => {
+                      appBloc.add(AppSeedShow())},
                   ),
                   Divider(),
                   ListTile(

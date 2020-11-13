@@ -27,26 +27,18 @@ class ShowSeed extends StatelessWidget {
           builder: (BuildContext context) => SafeArea(
             child: Column(
               children: <Widget>[
-                Expanded(
-                    child: ListView(children: <Widget>[
-                  ListTile(
-                      title: Text(s.base.account.address),
-                      subtitle: Text('Address'),
-                      trailing:
-                          copyWidget(s.base.account.address, context: context)),
-                  ListTile(
-                    title: Text(s.base.account.private_key),
-                    subtitle: Text('Private Key'),
-                    trailing: copyWidget(s.base.account.private_key,
-                        context: context),
-                  ),
-                  ListTile(
-                    subtitle: Text('Seed'),
-                    title: Text(from_private_key(s.base.account.private_key)),
-                    trailing: copyWidget(
-                        from_private_key(s.base.account.private_key),
-                        context: context),
-                  )
+                Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child:
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(from_private_key(s.base.account.private_key)),
+                      Padding(padding: const EdgeInsets.all(15.0),
+                      child: copyWidget(
+                          from_private_key(s.base.account.private_key),
+                          context: context),
+                      ),
                 ])),
                 if (s.forwardable)
                   RaisedButton(
