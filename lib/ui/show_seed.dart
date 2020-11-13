@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'utils.dart';
+
 class ShowSeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -57,12 +59,3 @@ class ShowSeed extends StatelessWidget {
         ));
   }
 }
-
-copyWidget(String text, {BuildContext context}) => IconButton(
-      icon: Icon(Icons.content_copy),
-      onPressed: () {
-        Clipboard.setData(ClipboardData(text: text));
-        Scaffold.of(context)
-            .showSnackBar(SnackBar(content: Text('Copied to clipboard.')));
-      },
-    );
