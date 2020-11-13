@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:dart_algorand/algod/model/account.dart';
+import 'package:dart_algorand/algod.dart';
 import 'package:rxdart/rxdart.dart';
 
 import 'algo_repository.dart';

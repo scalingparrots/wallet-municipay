@@ -9,7 +9,7 @@ import 'package:algorand_flutter/blocs/AppSeedMapper.dart';
 import 'package:algorand_flutter/blocs/utils.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dart_algorand/algod.dart' as algod;
-import 'package:dart_algorand/algod/model/account.dart';
+import 'package:dart_algorand/algod.dart';
 import 'package:dart_algorand/dart_algorand.dart';
 import 'package:manta_dart/manta_wallet.dart';
 import 'package:logging/logging.dart';
