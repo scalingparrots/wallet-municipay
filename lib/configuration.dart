@@ -4,8 +4,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Configuration {
   SharedPreferences prefs;
 
-  init() async {
+  Future<void> init() async {
     prefs = await SharedPreferences.getInstance();
+    return;
   }
 
   set account(AlgoAccount account) {
@@ -24,7 +25,8 @@ class Configuration {
         address: address_from_private_key(private_key));
   }
 
-  reset_account() {
+  void reset_account() {
     prefs.setString(('private_key'), null);
+    return;
   }
 }

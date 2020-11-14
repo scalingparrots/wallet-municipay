@@ -29,8 +29,8 @@ class SimpleBlocDelegate extends BlocDelegate {
   @override
   void onTransition(Bloc bloc, Transition transition) {
     super.onTransition(bloc, transition);
-    logger.info("Transation ${transition.currentState.runtimeType} ->"
-        "${transition.nextState.runtimeType} ** event: ${transition.event}");
+    logger.info('Transition ${transition.currentState.runtimeType} ->'
+        '${transition.nextState.runtimeType} ** event: ${transition.event}');
   }
 
   @override

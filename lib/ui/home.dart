@@ -19,14 +19,14 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppBloc appBloc = BlocProvider.of<AppBloc>(context);
+    final appBloc = BlocProvider.of<AppBloc>(context);
 
-    showSendSheet({int amount, String address}) async {
+    Future<void> showSendSheet({int amount, String address}) async {
       if (sendKey.currentWidget != null) {
         return;
       }
 
-      final result = await showModalBottomSheet(
+      await showModalBottomSheet(
           isScrollControlled: true,
           context: context,
           builder: (context) => BlocProvider.value(
@@ -41,12 +41,12 @@ class HomePage extends StatelessWidget {
       appBloc.add(AppSendSheetDismissed());
     }
 
-    showReceiveSheet() async {
+    Future<void> showReceiveSheet() async {
       if (receiveKey.currentWidget != null) {
         return;
       }
 
-      final result = await showModalBottomSheet(
+      await showModalBottomSheet(
           context: context,
           builder: (context) =>
               BlocProvider.value(value: appBloc, child: ReceiveSheet()));
@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
       appBloc.add(AppReceiveSheetDismissed());
     }
 
-    showMantaSheet({Merchant merchant, Destination destination}) async {
+    Future<void> showMantaSheet({Merchant merchant, Destination destination}) async {
       final result = await showModalBottomSheet(
           context: context,
           builder: (context) => BlocProvider.value(
@@ -142,6 +142,13 @@ class HomePage extends StatelessWidget {
                     onPressed: () {
                       appBloc.add(AppSendSheetShow());
                     },
+                  ),
+                  RaisedButton(
+                    child: const Text('UNLOCK'),
+                    color: Colors.red,
+                    onPressed: () {
+                      ;
+                    },
                   )
                 ],
               )
@@ -151,7 +158,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-assetDropdown(
+DropdownButton<int> assetDropdown(
     {int current,
     Map<String, int> assets,
     void Function(int value) onChanged}) {
@@ -170,7 +177,7 @@ assetDropdown(
       onChanged: onChanged);
 }
 
-transactionList(
+RefreshIndicator transactionList(
     {List transactions, String address, Future<void> Function() onRefresh}) {
   transactions = transactions.reversed.toList();
 

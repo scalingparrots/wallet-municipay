@@ -12,7 +12,7 @@ class AppHomeInitialMapper with Mapper {
     } else if (event is AppAssetChanged) {
       final asset = event.asset;
 
-      await this.appBloc.txSubscription.cancel();
+      await appBloc.txSubscription.cancel();
 
       appBloc.subscribeTX(
           address: state.base.account.address, asset: event.asset);
@@ -35,7 +35,7 @@ class AppHomeInitialMapper with Mapper {
     } else if (event is AppMantaSheetDismissed) {
       // Ignore: sheet has been already closed
     } else if (event is AppTransactionsUpdate) {
-      this.appBloc.updating.complete();
+      appBloc.updating.complete();
     } else {
       throw UnimplementedError('$event not handled in $state');
     }
@@ -48,7 +48,7 @@ class AppHomeInitialMapper with Mapper {
     if (event.account.assets != null) {
       for (String index in event.account.assets.keys) {
         final assetInfo =
-            await this.appBloc.repository.getAssetInformation(int.parse(index));
+            await appBloc.repository.getAssetInformation(int.parse(index));
         assets[assetInfo.unitname] = int.parse(index);
       }
     }

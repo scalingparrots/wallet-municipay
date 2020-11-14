@@ -27,7 +27,7 @@ class SendSheetUIState extends State<SendSheet> {
   void initState() {
     _destination.text = widget.destAddress;
     _amount.text =
-        widget.destAmount != null ? widget.destAmount.toString() : "";
+        widget.destAmount != null ? widget.destAmount.toString() : '';
 
     _amountFocusNode = FocusNode();
 
@@ -42,7 +42,7 @@ class SendSheetUIState extends State<SendSheet> {
 
   @override
   Widget build(BuildContext context) {
-    final AppBloc appBloc = BlocProvider.of<AppBloc>(context);
+    final appBloc = BlocProvider.of<AppBloc>(context);
     return BlocListener<AppBloc, AppState>(
       listener: (context, state) {
         if (state is AppHomeSendSheet) {

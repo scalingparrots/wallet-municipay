@@ -70,6 +70,23 @@ class AppSend extends AppEvent {
   }
 }
 
+class AppSendUnlockAsset extends AppEvent {
+  final int asset;
+  final int amount;
+
+  final String destination;
+
+  AppSendUnlockAsset({this.asset, this.amount, this.destination});
+
+  @override
+  List<Object> get props => [asset, amount, destination];
+
+  @override
+  String toString() {
+    return 'Send UNLOCK asset $asset Event - $amount to $destination';
+  }
+}
+
 class AppParseURL extends AppEvent {
   final String url;
 
