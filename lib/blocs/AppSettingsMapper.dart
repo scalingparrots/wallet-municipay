@@ -10,7 +10,7 @@ class AppSettingsMapper with Mapper {
     if (event is AppBack) {
       yield state.pstate;
     } else if (event is AppSeedReset) {
-      this.appBloc.configuration.reset_account();
+      appBloc.configuration.reset_account();
       yield AppAccountSetup(base: state.base);
     } else if (event is AppSeedShow) {
       yield AppSeed(base: state.base, pstate: state);

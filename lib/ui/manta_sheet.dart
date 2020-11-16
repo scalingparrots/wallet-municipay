@@ -17,7 +17,7 @@ class MantaSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppBloc appBloc = BlocProvider.of<AppBloc>(context);
+    final appBloc = BlocProvider.of<AppBloc>(context);
     return BlocListener<AppBloc, AppState>(
         listener: (context, state) {},
         child: Container(
@@ -25,7 +25,7 @@ class MantaSheet extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(children: [
               Text(
-                "Sending Manta",
+                'Sending Manta',
                 textScaleFactor: 2,
               ),
               TextFormField(

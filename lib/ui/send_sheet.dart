@@ -3,6 +3,7 @@ import 'package:algorand_flutter/blocs/app_event.dart';
 import 'package:algorand_flutter/blocs/app_state.dart';
 import 'package:dart_algorand/dart_algorand.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:combos/combos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,6 +61,20 @@ class SendSheetUIState extends State<SendSheet> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(mainAxisSize: MainAxisSize.min, children: [
+                Combo(
+                  child: const Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Text('Combo child'),
+                  ),
+                  popupBuilder: (context, mirrored) => const Material(
+                    elevation: 4,
+                    child: Padding(
+                      padding:
+                      EdgeInsets.symmetric(vertical: 48, horizontal: 16),
+                      child: Center(child: Text('Combo popup')),
+                    ),
+                  ),
+                ),
                 TextFormField(
                     maxLines: null,
                     controller: _destination,

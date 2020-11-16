@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
     }
 
     Future<void> showMantaSheet({Merchant merchant, Destination destination}) async {
-      final result = await showModalBottomSheet(
+      await showModalBottomSheet(
           context: context,
           builder: (context) => BlocProvider.value(
               value: appBloc,
@@ -142,13 +142,6 @@ class HomePage extends StatelessWidget {
                     onPressed: () {
                       appBloc.add(AppSendSheetShow());
                     },
-                  ),
-                  RaisedButton(
-                    child: const Text('UNLOCK'),
-                    color: Colors.red,
-                    onPressed: () {
-                      ;
-                    },
                   )
                 ],
               )
@@ -158,7 +151,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-DropdownButton<int> assetDropdown(
+assetDropdown(
     {int current,
     Map<String, int> assets,
     void Function(int value) onChanged}) {
@@ -177,7 +170,7 @@ DropdownButton<int> assetDropdown(
       onChanged: onChanged);
 }
 
-RefreshIndicator transactionList(
+transactionList(
     {List transactions, String address, Future<void> Function() onRefresh}) {
   transactions = transactions.reversed.toList();
 

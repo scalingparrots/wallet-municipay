@@ -23,7 +23,7 @@ class AppHomeSendSheetMapper with Mapper {
 
   Stream<AppState> _mapScanQRtoState(
       AppQRScan event, AppHomeSendSheet state) async* {
-    String barcodeScanRes = await BarcodeScanner.scan();
+    var barcodeScanRes = await BarcodeScanner.scan();
     // Test Manta Url
     final mantaParsed = MantaWallet.parseUrl(barcodeScanRes);
 

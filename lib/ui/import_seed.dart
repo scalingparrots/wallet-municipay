@@ -17,10 +17,10 @@ class ImportSeedUIState extends State<ImportSeed> {
 
   @override
   Widget build(BuildContext context) {
-    final AppBloc appBloc = BlocProvider.of<AppBloc>(context);
+    final appBloc = BlocProvider.of<AppBloc>(context);
     final _privateKey = TextEditingController();
 
-    submit() {
+    void submit() {
       if (!_formKey.currentState.validate()) {
         return;
       }

@@ -185,6 +185,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0-nullsafety.4"
+  combos:
+    dependency: "direct main"
+    description:
+      name: combos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.0"
   convert:
     dependency: transitive
     description:
@@ -218,7 +225,7 @@ packages:
     description:
       path: "."
       ref: develop
-      resolved-ref: a3ff9010a6cab15ad69c2f13268a93f8ab5db026
+      resolved-ref: f86a695d345fedd88bd9dd3076f488662c8332ed
       url: "git@github.com:scalingparrots/dart_algorand.git"
     source: git
     version: "0.9.7"
@@ -824,7 +831,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.7.3"
+    version: "1.7.4"
   xdg_directories:
     dependency: transitive
     description:
