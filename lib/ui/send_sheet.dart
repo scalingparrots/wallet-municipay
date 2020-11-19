@@ -61,20 +61,6 @@ class SendSheetUIState extends State<SendSheet> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(mainAxisSize: MainAxisSize.min, children: [
-                Combo(
-                  child: const Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Text('Combo child'),
-                  ),
-                  popupBuilder: (context, mirrored) => const Material(
-                    elevation: 4,
-                    child: Padding(
-                      padding:
-                      EdgeInsets.symmetric(vertical: 48, horizontal: 16),
-                      child: Center(child: Text('Combo popup')),
-                    ),
-                  ),
-                ),
                 TextFormField(
                     maxLines: null,
                     controller: _destination,

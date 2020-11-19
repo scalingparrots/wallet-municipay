@@ -223,9 +223,11 @@ packages:
   dart_algorand:
     dependency: "direct main"
     description:
-      name: dart_algorand
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: v2
+      resolved-ref: "10445f70b45cc4c2d46d4c3a0c4b1f415f107143"
+      url: "git@github.com:scalingparrots/dart_algorand.git"
+    source: git
     version: "0.9.7"
   dart_style:
     dependency: transitive
