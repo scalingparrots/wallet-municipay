@@ -9,10 +9,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SendSheet extends StatefulWidget {
+  final int destAsset;
   final String destAddress;
   final int destAmount;
 
-  SendSheet({key, this.destAmount, this.destAddress}) : super(key: key);
+  SendSheet({key, this.destAsset, this.destAmount, this.destAddress}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => SendSheetUIState();
@@ -21,6 +22,7 @@ class SendSheet extends StatefulWidget {
 class SendSheetUIState extends State<SendSheet> {
   final _destination = TextEditingController();
   final _amount = TextEditingController();
+  final _asset = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   FocusNode _amountFocusNode;
 
@@ -29,6 +31,8 @@ class SendSheetUIState extends State<SendSheet> {
     _destination.text = widget.destAddress;
     _amount.text =
         widget.destAmount != null ? widget.destAmount.toString() : '';
+    _asset.text =
+        widget.destAsset != null ? widget.destAsset.toString() : '';
 
     _amountFocusNode = FocusNode();
 
@@ -47,6 +51,7 @@ class SendSheetUIState extends State<SendSheet> {
     return BlocListener<AppBloc, AppState>(
       listener: (context, state) {
         if (state is AppHomeSendSheet) {
+          _asset.text = '-1';
           _amount.text = state.destAmount.toString();
           _destination.text = state.destAddress;
         }
@@ -61,6 +66,12 @@ class SendSheetUIState extends State<SendSheet> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(mainAxisSize: MainAxisSize.min, children: [
+                TextFormField(
+                  controller: _asset,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(labelText: 'ASSET'),
+
+                ),
                 TextFormField(
                     maxLines: null,
                     controller: _destination,
@@ -85,9 +96,11 @@ class SendSheetUIState extends State<SendSheet> {
                   inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
                   decoration: InputDecoration(labelText: 'AMOUNT'),
                   validator: (value) {
+
                     if (value.isEmpty) {
                       return 'Please enter amount';
                     }
+
 
                     if (int.parse(value) >
                         (appBloc.state as AppHomeSendSheet).balance) {
@@ -116,6 +129,7 @@ class SendSheetUIState extends State<SendSheet> {
                       }
 
                       appBloc.add(AppSend(
+                          asset: int.parse(_asset.text),
                           destination: _destination.text,
                           amount: int.parse(_amount.text)));
                     },

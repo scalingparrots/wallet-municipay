@@ -13,7 +13,8 @@ List<String> getAssets(algod.Account account) {
 int getBalanceForAssetIndex({algod.Account account, int asset}) {
   // final m = account.assets.asMap;
   //return (m[asset.toString()]['amount']);
-  return account.assets[asset.toString()].amount;
+  // FIXME
+  // return account.assets[asset].amount;
 }
 
 int getAssetIndex({algod.Account account, String asset}) {

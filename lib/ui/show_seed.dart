@@ -12,7 +12,7 @@ import 'utils.dart';
 class ShowSeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppBloc appBloc = BlocProvider.of<AppBloc>(context);
+    final appBloc = BlocProvider.of<AppBloc>(context);
     final s = appBloc.state as AppSeed;
 
     return Scaffold(

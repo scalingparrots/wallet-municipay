@@ -1,3 +1,4 @@
+import 'package:algorand_flutter/blocs/app_bloc.dart';
 import 'package:algorand_flutter/blocs/utils.dart';
 
 import 'app_event.dart';
@@ -44,14 +45,22 @@ class AppHomeInitialMapper with Mapper {
   Stream<AppState> _mapAccountInfoUpdateToState(
       AppAccountInfoUpdated event, AppHomeInitial state) async* {
     final assets = {'algo': -1};
+    final assetInfo = {};
 
+    event.account.assets.forEach((asset) => {
+      logger.info(asset)
+    });
+
+    // FIXME
+    /*
     if (event.account.assets != null) {
-      for (String index in event.account.assets.keys) {
+      for (String index in event.account.assets) {
         final assetInfo =
             await appBloc.repository.getAssetInformation(int.parse(index));
         assets[assetInfo.unitname] = int.parse(index);
       }
     }
+     */
 
     // assets.addAll(getAssets(event.account));
     final newBase = state.base.copyWith(accountInfo: event.account);

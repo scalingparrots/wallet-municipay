@@ -56,13 +56,14 @@ class AppMantaSheetDismissed extends AppEvent {
 }
 
 class AppSend extends AppEvent {
+  final int asset;
   final int amount;
   final String destination;
 
-  AppSend({this.amount, this.destination});
+  AppSend({this.asset, this.amount, this.destination});
 
   @override
-  List<Object> get props => [amount, destination];
+  List<Object> get props => [asset, amount, destination];
 
   @override
   String toString() {

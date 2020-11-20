@@ -1,14 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:ui';
 
-import 'package:algo_explorer_api/algo_explorer_api.dart';
 import 'package:algorand_flutter/algo_repository.dart';
 import 'package:algorand_flutter/blocs/AppImportSeedMapper.dart';
 import 'package:algorand_flutter/blocs/AppSeedMapper.dart';
-import 'package:algorand_flutter/blocs/utils.dart';
 import 'package:bloc/bloc.dart';
-import 'package:dart_algorand/algod.dart' as algod;
 import 'package:dart_algorand/algod.dart';
 import 'package:dart_algorand/dart_algorand.dart';
 import 'package:manta_dart/manta_wallet.dart';
@@ -83,7 +79,7 @@ class AppBloc extends Bloc<AppEvent, AppState>
     });
   }
 
-  initHome(AlgoAccount account) {
+  AppHome initHome(AlgoAccount account) {
     subscribeTX(address: account.address, asset: -1);
     subscribeAccount(account.address);
 
@@ -222,7 +218,7 @@ class AppBloc extends Bloc<AppEvent, AppState>
 
   Stream<AppState> _mapSendToState(AppSend event) async* {
     final note = mantaWallet == null ? null : mantaWallet.session_id;
-    final currentAsset = (state as AppHome).currentAsset;
+    final currentAsset = event.asset;
     String txid;
 
     if (currentAsset == -1) {
