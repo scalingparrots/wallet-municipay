@@ -48,7 +48,9 @@ class AppHomeInitialMapper with Mapper {
     final assetInfo = {};
 
     event.account.assets.forEach((asset) => {
-      logger.info(asset)
+      logger.info(asset),
+      assets[asset.assetId.toString()] = asset.assetId,
+
     });
 
     // FIXME
