@@ -73,6 +73,7 @@ flutter:
     - assets/.env
     - assets/images/municipayLogo.png
     - assets/images/municipayTextLogo.png
+    - assets/images/municipayIconLogo.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
